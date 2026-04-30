@@ -138,13 +138,7 @@ def get_chess_result_link_from_key_and_round(key: str, rd: int):
 
 def check_chess_results_link(value: str):
     """Check is chessresults link"""
-    is_chess_results_link = value.startswith(f'{BASE_API_URL}/tnr')
-    if is_chess_results_link is False:
-        return False
-    end_main_url_idx = value.find('.aspx')
-    if end_main_url_idx == -1:
-        return False
-    return True
+    return (value.startswith('http://') or value.startswith('https://')) and 'chess-results' in value
 
 def get_chess_results_excel_link(key: str, rd: int = None):
     """Get chess results excel link"""
