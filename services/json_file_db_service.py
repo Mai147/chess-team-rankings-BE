@@ -23,7 +23,6 @@ class JSONFileDBService(BaseDBService):
             raise DatabaseError(DATABASE_ERROR_MESSAGE) from exc
 
     def __write_json_file_tnr_content(self, key, json_data):
-        print(json_data)
         try:
             with open(os.path.join(JSON_DIR_PATH, f'{key}.json'), 'w', encoding='utf-8') as file:
                 json.dump(json_data, file, ensure_ascii=False)
